@@ -1,13 +1,18 @@
-
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // For Vercel (use '/' instead of '/my-portfolio/')
-   build: {
-    cssCodeSplit: true, // Ensures CSS is generated
-    assetsDir: 'assets', // Organizes CSS/JS in dist folder
-  }
-  
+  base: './', // Changed from '/' to './' for relative paths
+  build: {
+    cssCodeSplit: true,
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        entryFileNames: 'assets/[name]-[hash].js'
+      }
+    }
+  },
+ 
 })
