@@ -3,16 +3,19 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Changed from './' to '/' for proper asset loading on Vercel
+  base: '/my-portfolio/', // Changed to match your GitHub repository name
   build: {
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     assetsDir: 'assets',
     rollupOptions: {
       output: {
         assetFileNames: 'assets/[name]-[hash][extname]',
-        entryFileNames: 'assets/[name]-[hash].js'
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js'
       }
     }
   },
- 
+  css: {
+    postcss: './postcss.config.cjs'
+  }
 })
