@@ -63,5 +63,5 @@ Live demo: https://your-portfolio.vercel.app
 This project is licensed under the MIT License.
 
 📬 Contact
-Your Name - @your_twitter - youremail@example.com
+Veeranjaneyulu.Vipparla  - veeranjaneyuluvipparla.2109@gmail.com
 Project Link: https://github.com/veera5423/my-portfolio
