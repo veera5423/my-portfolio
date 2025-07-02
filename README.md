@@ -2,7 +2,7 @@
 
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-[![Live Demo](https://img.shields.io/badge/demo-live-green?style=for-the-badge)](https://your-deployed-url.here)
+[![Live Demo](https://img.shields.io/badge/demo-live-green?style=for-the-badge)]([https://your-deployed-url.here](https://veera5423.github.io/my-portfolio/))
 
 A modern portfolio website built with Vite.js, showcasing my projects, skills, and professional experience.
 
