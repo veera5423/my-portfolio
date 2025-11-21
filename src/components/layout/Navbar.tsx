@@ -40,29 +40,27 @@ const Navbar = () => {
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-lg' : ''
-      }`}
+        <motion.nav
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/60 backdrop-blur-md neon-accent' : 'bg-transparent'}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-gray-800 dark:text-white">VeeraVibe</h1>
+              <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-200 ">VeeraVibe</h1>
           </div>
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-6">
               {navItems.map((item) => (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-                    activeSection === item.id
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-gray-100 hover:text-blue-600 dark:text-gray-600 dark:hover:text-blue-400'
-                  }`}
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+                      activeSection === item.id
+                        ? 'text-brand-400'
+                        : 'text-gray-200 hover:text-brand-400'
+                    }`}
                 >
                   {item.label}
                 </a>

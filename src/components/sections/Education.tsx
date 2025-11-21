@@ -41,32 +41,32 @@ const Education = () => {
     },
   ];
 
-  const certifications: Certification[] = []
-  //   {
-  //     id: 1,
-  //     name: 'AWS Certified Cloud Practitioner',
-  //     issuer: 'Amazon Web Services',
-  //     date: '----',
-  //     logo: '/certifications/aws.svg',
-  //     url: 'https://aws.amazon.com/certification/',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'Google Cloud Professional Developer',
-  //     issuer: 'Google Cloud',
-  //     date: 'Mar 2023',
-  //     logo: '/certifications/gcp.svg',
-  //     url: 'https://cloud.google.com/certification/',
-  //   },
-  //   {
-  //     id: 3,
-  //     name: 'Meta Frontend Developer',
-  //     issuer: 'Meta',
-  //     date: 'Jun 2023',
-  //     logo: '/certifications/meta.svg',
-  //     url: 'https://www.meta.com/certificates/',
-  //   },
-  // ];
+  const certifications: Certification[] = [
+    {
+      id: 1,
+      name: 'MongoDB Certified Developer, Associate',
+      issuer: 'MongoDB University',
+      date: 'Oct 2026',
+      logo: 'mongodb-associate-developer.11.png',
+      url: 'https://www.credly.com/badges/d2d3556c-2c94-4ba2-8c67-1f6a059fc80d/public_url',
+    },
+    {
+      id: 2,
+      name: 'AWS  Certified Cloud Practitioner',
+      issuer: 'AWS',
+      date: 'Oct 2026',
+      logo: 'aws-certified-cloud-practitioner.png',
+      url: 'https://www.credly.com/badges/6e12b2b0-f0e9-492f-ac28-8fee881cc7ed/public_url',
+    },
+    // {
+    //   id: 3,
+    //   name: 'Meta Frontend Developer',
+    //   issuer: 'Meta',
+    //   date: 'Jun 2023',
+    //   logo: '/certifications/meta.svg',
+    //   url: 'https://www.meta.com/certificates/',
+    // },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -90,8 +90,8 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="education" className="py-20 bg-dynamic">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -100,10 +100,10 @@ const Education = () => {
           className="space-y-16"
         >
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-              Education & Certifications
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-400">Education & Certifications</span>
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-200 max-w-2xl mx-auto">
               My academic journey and professional certifications.
             </p>
           </div>
@@ -111,27 +111,23 @@ const Education = () => {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Education Timeline */}
             <div className="space-y-8">
-              <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-8">
-                Academic Background
-              </h3>
+              <h3 className="text-2xl font-semibold mb-8">Academic Background</h3>
               <div className="relative">
-                <div className="absolute left-4 top-0 h-full w-0.5 bg-blue-200 dark:bg-blue-900" />
+                <div className="absolute left-4 top-0 h-full w-1 bg-gradient-to-b from-brand-500 to-brand-400 opacity-70 rounded" />
                 {education.map((edu) => (
                   <motion.div
                     key={edu.id}
                     variants={itemVariants}
                     className="relative pl-12 pb-8"
                   >
-                    <div className="absolute left-0 top-1 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                    <div className="absolute left-0 top-1 w-10 h-10 bg-gradient-to-r from-brand-500 to-brand-400 rounded-full flex items-center justify-center neon-accent">
                       <div className="w-3 h-3 bg-white rounded-full" />
                     </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                      <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
-                        {edu.degree}
-                      </h4>
-                      <p className="text-blue-600 dark:text-blue-400 mb-2">{edu.institution}</p>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{edu.duration}</p>
-                      <p className="text-gray-600 dark:text-gray-300">{edu.description}</p>
+                    <div className="glass p-6 rounded-xl neon-accent">
+                      <h4 className="text-xl font-semibold mb-2">{edu.degree}</h4>
+                      <p className="text-brand-400/90 mb-2">{edu.institution}</p>
+                      <p className="text-gray-200 text-sm mb-2">{edu.duration}</p>
+                      <p className="text-gray-200">{edu.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -140,9 +136,7 @@ const Education = () => {
 
             {/* Certifications Grid */}
             <div className="space-y-8">
-              <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-8">
-              {/* Certifications */}
-              </h3>
+              <h3 className="text-2xl font-semibold mb-8">Certifications</h3>
               <div className="grid gap-6">
                 {certifications.map((cert) => (
                   <motion.a
@@ -151,7 +145,7 @@ const Education = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     variants={itemVariants}
-                    className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                    className="group glass p-6 rounded-xl neon-accent hover:scale-105 transition-transform"
                   >
                     <div className="flex items-center space-x-4">
                       <div className="flex-shrink-0 w-12 h-12">
@@ -162,11 +156,9 @@ const Education = () => {
                         />
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-lg font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                          {cert.name}
-                        </h4>
-                        <p className="text-gray-600 dark:text-gray-400">{cert.issuer}</p>
-                        <p className="text-gray-500 dark:text-gray-500 text-sm">{cert.date}</p>
+                        <h4 className="text-lg font-semibold group-hover:text-brand-400 transition-colors">{cert.name}</h4>
+                        <p className="text-gray-200">{cert.issuer}</p>
+                        <p className="text-gray-400 text-sm">{cert.date}</p>
                       </div>
                     </div>
                   </motion.a>

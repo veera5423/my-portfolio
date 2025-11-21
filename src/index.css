@@ -7,21 +7,22 @@
     scroll-behavior: smooth;
   }
 
+  /* Light-first defaults */
   body {
-    @apply font-sans antialiased text-gray-800 dark:text-gray-200;
+    @apply font-sans antialiased text-gray-800 bg-white;
   }
 
-  /* Custom scrollbar styles */
+  /* Custom scrollbar styles (light) */
   ::-webkit-scrollbar {
     @apply w-2;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-gray-100;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 dark:bg-gray-600 rounded-full hover:bg-gray-400 dark:hover:bg-gray-500;
+    @apply bg-gray-300 rounded-full hover:bg-gray-400;
   }
 
   /* Typography */
@@ -31,22 +32,34 @@
 
   /* Focus styles */
   :focus-visible {
-    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-white;
   }
+}
+
+/* Dark-mode overrides using the `dark` class on <html> (set by ThemeContext) */
+.dark body {
+  @apply text-gray-200 bg-black;
+}
+
+.dark ::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 rounded-full hover:bg-gray-600;
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
   }
 
   .btn-primary {
-    @apply btn bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600;
+    @apply btn bg-gradient-to-r from-brand-500 to-brand-400 text-white shadow-md hover:scale-105;
   }
 
   .btn-outline {
-    @apply btn border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white
-    dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900;
+    @apply btn border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white;
   }
 
   .section-container {
@@ -54,19 +67,109 @@
   }
 
   .card {
-    @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-shadow hover:shadow-xl;
+    @apply bg-gray-900 rounded-lg shadow-lg overflow-hidden transition-shadow hover:shadow-xl border border-gray-800;
   }
 }
 
 /* Animations */
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes gradient-xy {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes neon-glow {
+  0% { text-shadow: 0 0 6px rgba(249,115,22,0.10), 0 0 12px rgba(245,158,11,0.06); }
+  50% { text-shadow: 0 0 12px rgba(249,115,22,0.16), 0 0 24px rgba(245,158,11,0.10); }
+  100% { text-shadow: 0 0 6px rgba(249,115,22,0.10), 0 0 12px rgba(245,158,11,0.06); }
+}
+
+/* Theme utilities for black + orange */
+
+/* Light-first dynamic background (used on Hero) */
+.bg-dynamic {
+  background: linear-gradient(120deg, rgba(255,247,236,1) 0%, rgba(255,250,240,1) 40%, rgba(255,255,255,1) 100%);
+  background-size: 300% 300%;
+  animation: gradient-xy 16s ease infinite;
+}
+
+/* Light glass by default */
+.glass {
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  border: 1px solid rgba(15,23,42,0.04);
+}
+
+.neon {
+  color: #f97316; /* brand-500 */
+  animation: neon-glow 3s ease-in-out infinite;
+}
+
+.neon-accent {
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+  border: 1px solid rgba(15,23,42,0.06);
+}
+
+.ring-gradient {
+  background: conic-gradient(from 180deg at 50% 50%, rgba(249,115,22,0.14), rgba(245,158,11,0.10), rgba(255,183,77,0.06));
+  padding: 6px;
+  border-radius: 9999px;
+}
+
+.profile-frame {
+  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.9));
+  padding: 8px;
+  border-radius: 9999px;
+}
+
+/* Dark-mode variants */
+.dark .bg-dynamic {
+  background: linear-gradient(120deg, rgba(2,6,23,1) 0%, rgba(6,6,10,1) 30%, rgba(0,0,0,1) 60%);
+  background-size: 300% 300%;
+}
+
+.dark .glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.dark .neon-accent {
+  box-shadow: 0 10px 36px rgba(249,115,22,0.10), 0 0 60px rgba(249,115,22,0.04);
+  border: 1px solid rgba(249,115,22,0.12);
+}
+
+.dark .ring-gradient {
+  background: conic-gradient(from 180deg at 50% 50%, rgba(249,115,22,0.28), rgba(245,158,11,0.24), rgba(255,183,77,0.12));
+}
+
+.dark .profile-frame {
+  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+.dark .card {
+  @apply bg-gray-900 rounded-lg shadow-lg overflow-hidden transition-shadow hover:shadow-xl border border-gray-800;
+}
+
+/* Light default for card */
+.card {
+  @apply bg-white rounded-lg shadow-sm overflow-hidden transition-shadow hover:shadow-md border border-gray-100;
+}
+
+/* Smooth theme transition: applies to common visual properties so toggling theme fades nicely */
+:root, html, body, .glass, .card, .neon-accent, .btn, .btn-primary, .btn-outline, nav, footer, section {
+  transition: background-color 320ms ease, color 320ms ease, border-color 320ms ease, box-shadow 320ms ease, fill 320ms ease, stroke 320ms ease;
+}
+
+/* Optional utility class for explicit elements we want to transition more smoothly */
+.theme-transition {
+  transition: background-color 420ms ease, color 420ms ease, border-color 420ms ease, box-shadow 420ms ease;
 }

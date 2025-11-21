@@ -9,6 +9,7 @@ import {
   FaPython,
   FaGit,
   FaDocker,
+  FaAws,
 } from 'react-icons/fa';
 import { SiTypescript, SiTailwindcss, SiMongodb} from 'react-icons/si'; //SiPostgresql 
 
@@ -36,6 +37,7 @@ const Skills = () => {
     { name: 'Tailwind CSS', icon: SiTailwindcss, level: 90, color: '#06B6D4' },
     { name: 'MongoDB', icon: SiMongodb, level: 80, color: '#47A248' },
     // { name: 'PostgreSQL', icon: SiPostgresql, level: 75, color: '#336791' },
+    { name: 'AWS', icon: FaAws, level: 70, color: '#FF9900' },
     { name: 'Git', icon: FaGit, level: 85, color: '#F05032' },
     { name: 'Docker', icon: FaDocker, level: 75, color: '#2496ED' },
   ];
@@ -59,7 +61,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="min-h-screen flex items-center py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 dark:from-gray-900 dark:via-purple-900 dark:to-gray-900">
+    <section id="skills" className="min-h-screen flex items-center py-20 bg-dynamic text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
           ref={ref}
@@ -69,7 +71,7 @@ const Skills = () => {
           className="space-y-16"
         >
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-400">
+            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-400 mb-6">
               Technical Skills
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -84,7 +86,7 @@ const Skills = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="group relative p-8 bg-white/10 backdrop-blur-sm rounded-xl hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
+                  className="group relative p-8 bg-gray-900/40 backdrop-blur-sm rounded-2xl neon-accent transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="flex flex-col items-center space-y-6">
@@ -124,7 +126,7 @@ const Skills = () => {
                       {skill.level}%
                     </span>
                   </div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-r from-purple-900/80 to-pink-900/80 rounded-xl">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30 rounded-2xl">
                     <span className="text-white text-lg font-medium px-4 py-2 bg-black/30 rounded-full backdrop-blur-sm">
                       {skill.name}
                     </span>

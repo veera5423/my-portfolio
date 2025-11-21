@@ -62,12 +62,14 @@ const Contact = () => {
         'service_ayv2sr1',
         'template_ei5bwgw',
         formRef.current!,
-        '_AfpuwmMYJzMI05mx'
+        '3chtD839POqxYW33z'
       );
 
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
+    } catch (err) {
+  // Log error for debugging purposes and show user-friendly message
+  console.error(err);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -93,7 +95,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="contact" className="py-20 bg-dynamic text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -103,10 +105,10 @@ const Contact = () => {
           className="space-y-12"
         >
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
-              Get In Touch
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-400">Get In Touch</span>
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               Have a question or want to work together? Feel free to reach out!
             </p>
           </div>
@@ -122,7 +124,7 @@ const Contact = () => {
                       href={info.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-4 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      className="flex items-center space-x-4 text-gray-300 hover:text-brand-400 transition-colors"
                     >
                       <Icon className="text-2xl" />
                       <div>
@@ -135,9 +137,7 @@ const Contact = () => {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-                  Follow Me
-                </h3>
+                <h3 className="text-xl font-semibold text-white">Follow Me</h3>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon;
@@ -148,7 +148,7 @@ const Contact = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.2, rotate: 5 }}
-                        className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 text-2xl"
+                        className="text-gray-300 hover:text-brand-400 text-2xl"
                       >
                         <Icon />
                       </motion.a>
@@ -162,12 +162,12 @@ const Contact = () => {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="space-y-6 bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md"
+                className="space-y-6 glass p-8 rounded-xl neon-accent"
               >
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                   >
                     Name
                   </label>
@@ -178,14 +178,14 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white"
+                    className="w-full px-4 py-2 border border-gray-700 rounded-md focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-black/20 text-white"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                   >
                     Email
                   </label>
@@ -196,14 +196,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white"
+                    className="w-full px-4 py-2 border border-gray-700 rounded-md focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-black/20 text-white"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-sm font-medium text-gray-300 mb-2"
                   >
                     Message
                   </label>
@@ -214,17 +214,17 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:text-white"
+                    className="w-full px-4 py-2 border border-gray-700 rounded-md focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-black/20 text-white"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-3 px-6 text-white font-medium rounded-md transition-colors ${
+                  className={`w-full py-3 px-6 text-black font-medium rounded-md transition-colors ${
                     isSubmitting
                       ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-blue-600 hover:bg-blue-700'
+                      : 'bg-brand-500 hover:bg-brand-600'
                   }`}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}

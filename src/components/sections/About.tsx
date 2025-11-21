@@ -35,7 +35,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="min-h-screen flex items-center bg-gradient-to-br from-blue-900 via-indigo-900 to-violet-900 dark:from-gray-900 dark:via-blue-900 dark:to-gray-900">
+    <section id="about" className="min-h-screen flex items-center bg-dynamic text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
           ref={ref}
@@ -45,12 +45,11 @@ const About = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
         >
           <motion.div variants={itemVariants} className="relative group">
-            <div className="w-full h-[500px] bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 shadow-2xl">
+            <div className="w-full h-[500px] rounded-2xl overflow-hidden glass neon-accent">
               <motion.div
-                className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-500 opacity-20"
+                className="w-full h-full bg-black/10"
                 animate={{
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 10, 0],
+                  scale: [1, 1.02, 1],
                 }}
                 transition={{
                   duration: 10,
@@ -69,7 +68,7 @@ const About = () => {
           <div className="space-y-8">
             <motion.h2
               variants={itemVariants}
-              className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
+              className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-400"
             >
               About Me
             </motion.h2>
@@ -89,10 +88,10 @@ const About = () => {
               {quickFacts.map((fact, index) => (
                 <div
                   key={index}
-                  className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 group"
+                  className="p-6 glass rounded-xl border border-gray-800 hover:shadow-xl transition-all duration-300 group"
                 >
                   <h3 className="text-sm text-gray-400 mb-2">{fact.label}</h3>
-                  <p className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">{fact.value}</p>
+                  <p className="text-xl font-semibold text-white group-hover:text-brand-400 transition-colors">{fact.value}</p>
                 </div>
               ))}
             </motion.div>
