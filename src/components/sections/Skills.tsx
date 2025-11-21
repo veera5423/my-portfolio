@@ -61,7 +61,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="min-h-screen flex items-center py-20 bg-dynamic text-white">
+    <section id="skills" className="min-h-screen flex items-center py-20 bg-dynamic text-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
           ref={ref}
@@ -71,7 +71,7 @@ const Skills = () => {
           className="space-y-16"
         >
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-400 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold brand-gradient-text mb-6">
               Technical Skills
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -86,16 +86,15 @@ const Skills = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="group relative p-8 bg-gray-900/40 backdrop-blur-sm rounded-2xl neon-accent transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
+                  className="card card--dark group relative p-6 rounded-2xl neon-accent transition-all duration-300"
+                  whileHover={{ scale: 1.03 }}
                 >
-                  <div className="flex flex-col items-center space-y-6">
-                    <div className="relative w-24 h-24">
-                      <svg className="w-24 h-24 transform -rotate-90">
+                  <div className="flex flex-col items-center space-y-4">
+                    <div className="relative w-20 h-20">
+                      <svg viewBox="0 0 96 96" className="w-20 h-20 transform -rotate-90">
                         <circle
-                          className="text-gray-700"
                           strokeWidth="8"
-                          stroke="currentColor"
+                          stroke="#374151"
                           fill="transparent"
                           r="44"
                           cx="48"
@@ -119,16 +118,11 @@ const Skills = () => {
                         <Icon className="text-3xl" style={{ color: skill.color }} />
                       </div>
                     </div>
-                    <h3 className="text-lg font-medium text-white">
+                    <h3 className="text-lg font-medium text-gray-200">
                       {skill.name}
                     </h3>
                     <span className="text-2xl font-bold" style={{ color: skill.color }}>
                       {skill.level}%
-                    </span>
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30 rounded-2xl">
-                    <span className="text-white text-lg font-medium px-4 py-2 bg-black/30 rounded-full backdrop-blur-sm">
-                      {skill.name}
                     </span>
                   </div>
                 </motion.div>

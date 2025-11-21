@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Button from '../ui/Button';
 import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
@@ -134,7 +135,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-dynamic text-white">
+    <section id="projects" className="py-20 bg-dynamic text-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -145,33 +146,29 @@ const Projects = () => {
         >
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-400">Featured Projects</span>
+              <span className="brand-gradient-text">Featured Projects</span>
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
               A collection of my recent work and personal projects.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 mb-12">
-              <button
+              <Button
                 onClick={() => setSelectedTag('All')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedTag === 'All'
-                  ? 'bg-brand-500 text-black'
-                  : 'bg-gray-800 text-gray-300 hover:bg-brand-600 hover:text-white'
-                  }`}
+                variant={selectedTag === 'All' ? 'primary' : 'outline'}
+                className="rounded-full text-sm"
               >
                 All
-              </button>
+              </Button>
               {allTags.map((tag) => (
-                <button
+                <Button
                   key={tag}
                   onClick={() => setSelectedTag(tag)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${selectedTag === tag
-                    ? 'bg-brand-500 text-black'
-                    : 'bg-gray-800 text-gray-300 hover:bg-brand-600 hover:text-white'
-                    }`}
+                  variant={selectedTag === tag ? 'primary' : 'outline'}
+                  className="rounded-full text-sm"
                 >
                   {tag}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
@@ -183,7 +180,7 @@ const Projects = () => {
                   key={project.id}
                   variants={itemVariants}
                   layout
-                  className="glass rounded-xl overflow-hidden shadow-lg hover:shadow-2xl neon-accent transition-transform hover:scale-[1.02]"
+                  className="card card--dark rounded-xl overflow-hidden neon-accent transition-transform hover:scale-[1.02]"
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <img
@@ -193,7 +190,7 @@ const Projects = () => {
                     />
                   </div>
                   <div className="p-6 space-y-4">
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-xl font-semibold text-gray-200">
                       {project.title}
                     </h3>
                     <p className="text-gray-300">{project.description}</p>
@@ -201,7 +198,7 @@ const Projects = () => {
                       {project.tags.map((tag, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-gray-800 text-gray-300 text-sm rounded-full border border-gray-700"
+                          className="px-3 py-1 bg-black/30 text-white/80 text-sm rounded-full border border-brand-500/10"
                         >
                           {tag}
                         </span>
@@ -212,7 +209,7 @@ const Projects = () => {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-gray-300 hover:text-brand-400 transition-colors"
+                        className="flex items-center gap-2 text-white/80 hover:text-brand-500 transition-colors"
                       >
                         <FaGithub className="text-xl" />
                         <span>Code</span>
@@ -221,7 +218,7 @@ const Projects = () => {
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-gray-300 hover:text-brand-400 transition-colors"
+                        className="flex items-center gap-2 text-white/80 hover:text-brand-500 transition-colors"
                       >
                         <FaExternalLinkAlt className="text-lg" />
                         <span>Live Demo</span>

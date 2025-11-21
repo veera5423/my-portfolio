@@ -1,175 +1,146 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @import "tailwindcss/preflight";
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities"; */
+@import "tailwindcss";
 
+/* Brand color variables (kept as CSS variables for quick tweaks) */
+:root {
+	--brand-50: #fff7ed;
+	--brand-100: #ffedd5;
+	--brand-200: #fed7aa;
+	--brand-300: #fdba74;
+	--brand-400: #fb923c;
+	--brand-500: #f97316;
+	--brand-600: #ea580c;
+	--brand-700: #c2410c;
+	--brand-800: #9a3412;
+	--brand-900: #7c2d12;
+}
+
+/* Tailwind base layer: prefers light-first, with .dark overrides applied via ThemeContext */
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+	html { scroll-behavior: smooth; }
 
-  /* Light-first defaults */
-  body {
-    @apply font-sans antialiased text-gray-800 bg-white;
-  }
+	body {
+		font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		color: #e5e7eb; /* base text color (text-gray-200) */
+		background-color: #000; /* black */
+	}
 
-  /* Custom scrollbar styles (light) */
-  ::-webkit-scrollbar {
-    @apply w-2;
-  }
+	/* Dark scrollbar (default dark theme) */
+	::-webkit-scrollbar { width: 10px; }
+	::-webkit-scrollbar-track { background: #000000; }
+	::-webkit-scrollbar-thumb { background:var(--brand-500); border-radius: 9999px; }
 
-  ::-webkit-scrollbar-track {
-    @apply bg-gray-100;
-  }
+	/* Headings */
+	h1,h2,h3,h4,h5,h6 { font-weight: 700; letter-spacing: -0.02em; }
 
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 rounded-full hover:bg-gray-400;
-  }
-
-  /* Typography */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
-  }
-
-  /* Focus styles */
-  :focus-visible {
-    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-white;
-  }
+	/* Focus visible */
+	:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--brand-200); }
 }
 
-/* Dark-mode overrides using the `dark` class on <html> (set by ThemeContext) */
-.dark body {
-  @apply text-gray-200 bg-black;
-}
+/* Dark-mode overrides using .dark on <html> */
+/* The project is dark-only. `.dark` selectors are kept for compatibility but
+   dark styles are the default; light-mode rules are removed. */
 
-.dark ::-webkit-scrollbar-track {
-  @apply bg-gray-900;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded-full hover:bg-gray-600;
-}
-
+/* Component utilities (light-first). Prefer using utilities in JSX; these are for shared look-and-feel. */
 @layer components {
-  .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
-  }
+	/* Default card is the dark card */
+	.card {
+		background-color: #000; /* pure black for cards per request */
+		border-radius: 0.5rem; /* rounded-lg */
+		overflow: hidden;
+		/* use black shadow + subtle orange glow, avoid grays/blues */
+		box-shadow: 0 10px 30px rgba(0,0,0,0.75), 0 0 20px rgba(249,115,22,0.04);
+		border: 1px solid rgba(249,115,22,0.04);
+		transition: box-shadow 200ms ease, border-color 200ms ease;
+	}
 
-  .btn-primary {
-    @apply btn bg-gradient-to-r from-brand-500 to-brand-400 text-white shadow-md hover:scale-105;
-  }
+	/* kept for compatibility if some components explicitly use it */
+	.card--dark {
+		background-color: #000;
+		border-radius: 0.5rem;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.75), 0 0 20px rgba(249,115,22,0.04);
+		border: 1px solid rgba(249,115,22,0.04);
+	}
 
-  .btn-outline {
-    @apply btn border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white;
-  }
+	/* Glass effect tuned for dark background */
+	.glass {
+		/* Dark glass: subtle black tint, no white/gray highlights */
+		background: rgba(0,0,0,0.45);
+		backdrop-filter: blur(8px) saturate(120%);
+		-webkit-backdrop-filter: blur(8px) saturate(120%);
+		border: 1px solid rgba(249,115,22,0.03);
+	}
 
-  .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
+	.glass--dark {
+		background: rgba(0,0,0,0.45);
+		backdrop-filter: blur(8px) saturate(120%);
+		-webkit-backdrop-filter: blur(8px) saturate(120%);
+		border: 1px solid rgba(249,115,22,0.03);
+	}
 
-  .card {
-    @apply bg-gray-900 rounded-lg shadow-lg overflow-hidden transition-shadow hover:shadow-xl border border-gray-800;
-  }
+	/* Dark dynamic background with subtle orange glow */
+	.bg-dynamic {
+		background: linear-gradient(120deg, rgb(0, 0, 0), rgb(5, 5, 5));
+		background-size: 300% 300%;
+		animation: gradient-xy 18s ease infinite;
+	}
 }
 
-/* Animations */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
-}
-
+/* Animations & keyframes */
 @keyframes gradient-xy {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
 }
 
 @keyframes neon-glow {
-  0% { text-shadow: 0 0 6px rgba(249,115,22,0.10), 0 0 12px rgba(245,158,11,0.06); }
-  50% { text-shadow: 0 0 12px rgba(249,115,22,0.16), 0 0 24px rgba(245,158,11,0.10); }
-  100% { text-shadow: 0 0 6px rgba(249,115,22,0.10), 0 0 12px rgba(245,158,11,0.06); }
+	0% { text-shadow: 0 0 6px rgba(249,115,22,0.10); }
+	50% { text-shadow: 0 0 12px rgba(249,115,22,0.16); }
+	100% { text-shadow: 0 0 6px rgba(249,115,22,0.10); }
 }
 
-/* Theme utilities for black + orange */
+/* Dark variants that components can opt into by using the `dark:` prefix or `card--dark`/`glass--dark` classes */
+.dark .card { background-color: #111827; border-color: #1f2937; }
+.dark .glass { background: rgba(255,255,255,0.02); }
 
-/* Light-first dynamic background (used on Hero) */
-.bg-dynamic {
-  background: linear-gradient(120deg, rgba(255,247,236,1) 0%, rgba(255,250,240,1) 40%, rgba(255,255,255,1) 100%);
-  background-size: 300% 300%;
-  animation: gradient-xy 16s ease infinite;
+/* Smooth theme transition helper */
+:root, html, body, .glass, .card, nav, footer, section {
+	transition: background-color 320ms ease, color 320ms ease, border-color 320ms ease, box-shadow 320ms ease;
 }
 
-/* Light glass by default */
-.glass {
-  background: rgba(255,255,255,0.72);
-  backdrop-filter: blur(6px) saturate(120%);
-  -webkit-backdrop-filter: blur(6px) saturate(120%);
-  border: 1px solid rgba(15,23,42,0.04);
+/* Small utility for neon-accent when needed */
+.neon-accent { box-shadow: 0 10px 36px rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.06); }
+
+/* Strong brand gradient text for dark backgrounds */
+.brand-gradient-text {
+	background: linear-gradient(90deg, var(--brand-500), var(--brand-200));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
-.neon {
-  color: #f97316; /* brand-500 */
-  animation: neon-glow 3s ease-in-out infinite;
-}
 
-.neon-accent {
-  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
-  border: 1px solid rgba(15,23,42,0.06);
-}
 
+/* Profile image ring + inner frame used in the Hero section */
 .ring-gradient {
-  background: conic-gradient(from 180deg at 50% 50%, rgba(249,115,22,0.14), rgba(245,158,11,0.10), rgba(255,183,77,0.06));
-  padding: 6px;
-  border-radius: 9999px;
+	background: conic-gradient(from 180deg at 50% 50%, rgba(249,115,22,0.14), rgba(245,158,11,0.10), rgba(255,183,77,0.06));
+	padding: 6px;
+	border-radius: 9999px;
+	display: inline-block;
 }
 
 .profile-frame {
-  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.9));
-  padding: 8px;
-  border-radius: 9999px;
+	background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
 }
 
-/* Dark-mode variants */
-.dark .bg-dynamic {
-  background: linear-gradient(120deg, rgba(2,6,23,1) 0%, rgba(6,6,10,1) 30%, rgba(0,0,0,1) 60%);
-  background-size: 300% 300%;
-}
-
-.dark .glass {
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(8px) saturate(120%);
-  -webkit-backdrop-filter: blur(8px) saturate(120%);
-  border: 1px solid rgba(255,255,255,0.04);
-}
-
-.dark .neon-accent {
-  box-shadow: 0 10px 36px rgba(249,115,22,0.10), 0 0 60px rgba(249,115,22,0.04);
-  border: 1px solid rgba(249,115,22,0.12);
-}
-
+/* Dark-specific tweaks (kept for compatibility) */
 .dark .ring-gradient {
-  background: conic-gradient(from 180deg at 50% 50%, rgba(249,115,22,0.28), rgba(245,158,11,0.24), rgba(255,183,77,0.12));
+	background: conic-gradient(from 180deg at 50% 50%, rgba(249,115,22,0.28), rgba(245,158,11,0.22), rgba(255,183,77,0.12));
 }
-
 .dark .profile-frame {
-  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-}
-
-.dark .card {
-  @apply bg-gray-900 rounded-lg shadow-lg overflow-hidden transition-shadow hover:shadow-xl border border-gray-800;
-}
-
-/* Light default for card */
-.card {
-  @apply bg-white rounded-lg shadow-sm overflow-hidden transition-shadow hover:shadow-md border border-gray-100;
-}
-
-/* Smooth theme transition: applies to common visual properties so toggling theme fades nicely */
-:root, html, body, .glass, .card, .neon-accent, .btn, .btn-primary, .btn-outline, nav, footer, section {
-  transition: background-color 320ms ease, color 320ms ease, border-color 320ms ease, box-shadow 320ms ease, fill 320ms ease, stroke 320ms ease;
-}
-
-/* Optional utility class for explicit elements we want to transition more smoothly */
-.theme-transition {
-  transition: background-color 420ms ease, color 420ms ease, border-color 420ms ease, box-shadow 420ms ease;
+ 	background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
 }

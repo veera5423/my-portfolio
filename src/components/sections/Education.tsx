@@ -91,7 +91,7 @@ const Education = () => {
 
   return (
     <section id="education" className="py-20 bg-dynamic">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-200">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -101,9 +101,9 @@ const Education = () => {
         >
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-400">Education & Certifications</span>
+              <span className="brand-gradient-text">Education & Certifications</span>
             </h2>
-            <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               My academic journey and professional certifications.
             </p>
           </div>
@@ -113,21 +113,21 @@ const Education = () => {
             <div className="space-y-8">
               <h3 className="text-2xl font-semibold mb-8">Academic Background</h3>
               <div className="relative">
-                <div className="absolute left-4 top-0 h-full w-1 bg-gradient-to-b from-brand-500 to-brand-400 opacity-70 rounded" />
+                <div className="absolute left-4 top-0 h-full w-1 bg-gradient-to-b from-brand-500 to-brand-600 opacity-80 rounded" />
                 {education.map((edu) => (
                   <motion.div
                     key={edu.id}
                     variants={itemVariants}
                     className="relative pl-12 pb-8"
                   >
-                    <div className="absolute left-0 top-1 w-10 h-10 bg-gradient-to-r from-brand-500 to-brand-400 rounded-full flex items-center justify-center neon-accent">
-                      <div className="w-3 h-3 bg-white rounded-full" />
+                      <div className="absolute left-0 top-1 w-10 h-10 bg-linear-to-r from-brand-500 to-brand-600 rounded-full flex items-center justify-center neon-accent">
+                      <div className="w-3 h-3 bg-brand-500 rounded-full" />
                     </div>
-                    <div className="glass p-6 rounded-xl neon-accent">
+                    <div className="card card--dark p-6 rounded-xl neon-accent">
                       <h4 className="text-xl font-semibold mb-2">{edu.degree}</h4>
-                      <p className="text-brand-400/90 mb-2">{edu.institution}</p>
-                      <p className="text-gray-200 text-sm mb-2">{edu.duration}</p>
-                      <p className="text-gray-200">{edu.description}</p>
+                      <p className="text-brand-500/90 mb-2">{edu.institution}</p>
+                      <p className="text-gray-300 text-sm mb-2">{edu.duration}</p>
+                      <p className="text-gray-300">{edu.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -145,7 +145,7 @@ const Education = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     variants={itemVariants}
-                    className="group glass p-6 rounded-xl neon-accent hover:scale-105 transition-transform"
+                    className="group card card--dark p-6 rounded-xl neon-accent hover:scale-105 transition-transform"
                   >
                     <div className="flex items-center space-x-4">
                       <div className="flex-shrink-0 w-12 h-12">
@@ -156,8 +156,8 @@ const Education = () => {
                         />
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-lg font-semibold group-hover:text-brand-400 transition-colors">{cert.name}</h4>
-                        <p className="text-gray-200">{cert.issuer}</p>
+                        <h4 className="text-lg font-semibold group-hover:text-brand-500 transition-colors">{cert.name}</h4>
+                        <p className="text-gray-300">{cert.issuer}</p>
                         <p className="text-gray-400 text-sm">{cert.date}</p>
                       </div>
                     </div>

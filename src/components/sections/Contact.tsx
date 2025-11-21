@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import emailjs from '@emailjs/browser';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import Button from '../ui/Button';
 
 interface FormData {
   name: string;
@@ -95,7 +96,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-dynamic text-white">
+    <section id="contact" className="py-20 bg-dynamic text-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -106,7 +107,7 @@ const Contact = () => {
         >
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-400">Get In Touch</span>
+              <span className="brand-gradient-text">Get In Touch</span>
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               Have a question or want to work together? Feel free to reach out!
@@ -124,11 +125,11 @@ const Contact = () => {
                       href={info.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-4 text-gray-300 hover:text-brand-400 transition-colors"
+                      className="flex items-center space-x-4 text-gray-300 hover:text-brand-500 transition-colors"
                     >
                       <Icon className="text-2xl" />
                       <div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{info.label}</p>
+                        <p className="text-sm text-gray-400">{info.label}</p>
                         <p className="font-medium">{info.value}</p>
                       </div>
                     </a>
@@ -137,7 +138,7 @@ const Contact = () => {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-white">Follow Me</h3>
+                <h3 className="text-xl font-semibold text-gray-200">Follow Me</h3>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon;
@@ -148,7 +149,7 @@ const Contact = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.2, rotate: 5 }}
-                        className="text-gray-300 hover:text-brand-400 text-2xl"
+                        className="text-gray-300 hover:text-brand-500 text-2xl"
                       >
                         <Icon />
                       </motion.a>
@@ -162,7 +163,7 @@ const Contact = () => {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="space-y-6 glass p-8 rounded-xl neon-accent"
+                className="space-y-6 card p-8 rounded-xl neon-accent"
               >
                 <div>
                   <label
@@ -178,7 +179,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-700 rounded-md focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-black/20 text-white"
+                    className="w-full px-4 py-2 border border-brand-500/10 rounded-md focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-black/20 text-gray-200"
                   />
                 </div>
 
@@ -196,7 +197,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-700 rounded-md focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-black/20 text-white"
+                    className="w-full px-4 py-2 border border-brand-500/10 rounded-md focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-black/20 text-gray-200"
                   />
                 </div>
 
@@ -214,21 +215,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-2 border border-gray-700 rounded-md focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-black/20 text-white"
+                    className="w-full px-4 py-2 border border-brand-500/10 rounded-md focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-black/20 text-gray-200"
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full py-3 px-6 text-black font-medium rounded-md transition-colors ${
-                    isSubmitting
-                      ? 'bg-gray-400 cursor-not-allowed'
-                      : 'bg-brand-500 hover:bg-brand-600'
-                  }`}
-                >
+                <Button type="submit" className="w-full" disabled={isSubmitting} variant={isSubmitting ? 'ghost' : 'primary'}>
                   {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
+                </Button>
 
                 {submitStatus && (
                   <motion.div
@@ -236,8 +229,8 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className={`text-center p-3 rounded-md ${
                       submitStatus === 'success'
-                        ? 'bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-100'
-                        : 'bg-red-100 text-red-700 dark:bg-red-800 dark:text-red-100'
+                        ? 'bg-green-900 text-green-200'
+                        : 'bg-red-900 text-red-200'
                     }`}
                   >
                     {submitStatus === 'success'

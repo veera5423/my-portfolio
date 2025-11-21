@@ -35,7 +35,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="min-h-screen flex items-center bg-dynamic text-white">
+    <section id="about" className="min-h-screen flex items-center bg-dynamic text-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
           ref={ref}
@@ -68,7 +68,7 @@ const About = () => {
           <div className="space-y-8">
             <motion.h2
               variants={itemVariants}
-              className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-400"
+              className="text-4xl md:text-5xl font-bold brand-gradient-text"
             >
               About Me
             </motion.h2>
@@ -85,13 +85,10 @@ const About = () => {
               variants={itemVariants}
               className="grid grid-cols-2 gap-6"
             >
-              {quickFacts.map((fact, index) => (
-                <div
-                  key={index}
-                  className="p-6 glass rounded-xl border border-gray-800 hover:shadow-xl transition-all duration-300 group"
-                >
+                {quickFacts.map((fact, index) => (
+                <div key={index} className="card p-6 hover:shadow-xl transition-all duration-300">
                   <h3 className="text-sm text-gray-400 mb-2">{fact.label}</h3>
-                  <p className="text-xl font-semibold text-white group-hover:text-brand-400 transition-colors">{fact.value}</p>
+                  <p className="text-xl font-semibold text-gray-200">{fact.value}</p>
                 </div>
               ))}
             </motion.div>
