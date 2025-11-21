@@ -2,9 +2,11 @@
 
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-[![Live Demo](https://img.shields.io/badge/demo-live-green?style=for-the-badge)](https://your-deployed-url.here)
+[![Live Demo](https://img.shields.io/badge/demo-live-green?style=for-the-badge)]([https://your-deployed-url.here](https://veera5423.github.io/my-portfolio/))
 
 A modern portfolio website built with Vite.js, showcasing my projects, skills, and professional experience.
+![Screenshot 2025-07-05 203707](https://github.com/user-attachments/assets/c44f0f3d-7ca6-47e8-910e-d035b2ff84f5)
+
 
 ## ✨ Features
 
@@ -63,5 +65,5 @@ Live demo: https://your-portfolio.vercel.app
 This project is licensed under the MIT License.
 
 📬 Contact
-Your Name - @your_twitter - youremail@example.com
+Veeranjaneyulu.Vipparla  - veeranjaneyuluvipparla.2109@gmail.com
 Project Link: https://github.com/veera5423/my-portfolio
