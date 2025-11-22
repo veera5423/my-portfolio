@@ -58,7 +58,7 @@ const Navbar = () => {
                   href={`#${item.id}`}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${activeSection === item.id
                        ? 'text-orange-400'
-                       : 'text-gray-200 hover:text-orange-400'
+                      : 'text-gray-200 hover:text-brand-500'
                     }`}
                 >
                   {item.label}

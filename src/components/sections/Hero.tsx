@@ -54,7 +54,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, rotate: 5 }}
-                  className="text-gray-300 hover:text-orange-500 text-2xl"
+                  className="text-gray-300 hover:text-brand-500 text-2xl"
                 >
                   <Icon />
                 </motion.a>

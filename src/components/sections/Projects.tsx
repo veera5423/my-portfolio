@@ -99,7 +99,37 @@ const Projects = () => {
       githubUrl: 'https://github.com/veera5423/portfolio',
       demoUrl: 'https://veera5423.github.io/portfolio/',
       note: '🌱 This was my first portfolio attempt. A stepping stone into frontend development — now evolving into something even better!'
-    }
+    },
+    {
+      id: 9,
+      title: "CleanTech – AI Waste Classification System",
+      description:
+        "An AI-powered waste classification system that uses Transfer Learning with VGG16 to identify waste as Recyclable, Biodegradable, or Trash. Integrated with a Flask-based web interface for real-time image uploads and instant predictions, this project promotes sustainable and smart waste management practices.",
+      image: "https://d12aarmt01l54a.cloudfront.net/cms/images/UserMedia-20240522153951/808-440.png",
+      tags: ["Python", "Flask", "TensorFlow", "Deep Learning", "VGG16"],
+      githubUrl: "https://github.com/veera5423/CleanTech-AI", // Replace with your actual repo link
+      demoUrl: "https://cleantech-ai.onrender.com/", // Or your deployed demo link (if available)
+      note: "♻️ Combines deep learning and sustainability — achieving 90% classification accuracy for smarter waste management."
+    },{
+  "id": 10,
+  "title": "QuickSpark AI: Intelligent Study & Career Platform",
+  "description": "QuickSpark AI is a complete, scalable EdTech solution built to bridge the gap between learning and career readiness. It provides comprehensive AI tools for users to upload study materials, instantly generate personalized quizzes, engage in RAG-powered chat with their documents, and validate skills against specific career roadmaps (Frontend, Data Science, etc.). The platform features a **freemium model** restricting general AI usage, a secure **Admin Portal** for content verification.",
+  "image": "https://cdn.completeaitraining.com/ai_course_images/all_ai_courses_for_chemical_engineers__updated_q2__1752096547.jpg", // Keep the custom image name
+  "tags": [
+    "Flask",
+    "React",
+    "MongoDB",
+    "Supabase Storage (File/Vector)", // Highlight the multi-DB architecture
+    "Gemini AI (RAG & Summarization)",
+    "JWT Auth",
+    "PostgreSQL (pgvector)", // Highlight the vector capability
+    "Monetization/Freemium"
+  ],
+  "githubUrl": "", 
+  "demoUrl": "https://quick-spark.vercel.app/", 
+  "note": "🏆 **MVP Complete & Verified:** Successfully integrated multi-database persistence (Mongo + Supabase/Postgres) and solved complex RAG validation, enabling automated skill tracking and a secure Admin/Moderation workflow."
+}
+
 
 
 
