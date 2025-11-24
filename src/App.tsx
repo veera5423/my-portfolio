@@ -10,10 +10,10 @@ import Education from './components/sections/Education';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
 import MouseFollower from './components/ui/MouseFollower';
-import ThreeDAne from './components/ui/ThreeDAne';
+
 
 const AppContent = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
+ 
 
   useEffect(() => {
     // Smooth scroll behavior for anchor links
@@ -32,7 +32,6 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-black transition-colors duration-300">
       <Navbar />
-      <Background />
       <main>
         
         <MouseFollower />
@@ -42,6 +41,7 @@ const AppContent = () => {
         <Projects />
         <Education />
         <Contact />
+      <Background />
       </main>
       <Footer  />
     </div>

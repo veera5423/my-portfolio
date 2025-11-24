@@ -254,12 +254,14 @@
 .site-background {
 	position: fixed;
 	inset: 0;
-	z-index: 0;
+	/* production default — background blobs sit behind content */
+	z-index: 40;
 	pointer-events: none;
 	overflow: hidden;
 }
 .floating-blob {
 	position: absolute;
+	/* subtle, soft blobs for production */
 	filter: blur(40px);
 	opacity: 0.6;
 	mix-blend-mode: screen;

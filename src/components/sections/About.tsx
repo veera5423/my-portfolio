@@ -45,7 +45,18 @@ const About = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
         >
           <motion.div variants={itemVariants} className="relative group flex justify-center md:justify-start">
-            <div className="slanted-rect w-full h-[300px] md:w-[34rem] md:h-[20rem] mx-auto md:mx-0 glass ">
+            {/* Mobile: show a small circular profile image */}
+            <div className="block md:hidden mb-6">
+              <img
+                src="veera1.png"
+                alt="Veeranjaneyulu Vipparla — Full Stack Developer"
+                loading="lazy"
+                className="w-78 h-78 rounded-full object-cover ring-gradient mx-auto"
+              />
+            </div>
+
+            {/* Desktop: original slanted portrait */}
+            <div className="hidden md:block slanted-rect w-full h-[300px] md:w-[34rem] md:h-[20rem] mx-auto md:mx-0 glass ">
               <div className="slanted-inner">
                 <img
                   src="veera1.png"
