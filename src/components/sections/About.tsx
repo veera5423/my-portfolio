@@ -44,26 +44,19 @@ const About = () => {
           animate={inView ? 'visible' : 'hidden'}
           className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
         >
-          <motion.div variants={itemVariants} className="relative group">
-            <div className="w-full h-[500px] rounded-2xl overflow-hidden glass neon-accent">
-              <motion.div
-                className="w-full h-full bg-black/10"
-                animate={{
-                  scale: [1, 1.02, 1],
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  repeatType: 'reverse',
-                }}
-              />
-              <img
-                src="vite.svg"
-                alt="Profile Sketch"
-                className="absolute inset-0 w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-500"
-              />
+          <motion.div variants={itemVariants} className="relative group flex justify-center md:justify-start">
+            <div className="slanted-rect w-full h-[300px] md:w-[34rem] md:h-[20rem] mx-auto md:mx-0 glass ">
+              <div className="slanted-inner">
+                <img
+                  src="veera1.png"
+                  alt="Veeranjaneyulu Vipparla — Full Stack Developer"
+                  loading="lazy"
+                  className="slanted-image"
+                />
+              </div>
             </div>
           </motion.div>
+          
 
           <div className="space-y-8">
             <motion.h2

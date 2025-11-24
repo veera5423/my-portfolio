@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import Navbar from './components/layout/Navbar';
+import Background from './components/ui/Background';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Skills from './components/sections/Skills';
@@ -8,6 +9,8 @@ import Projects from './components/sections/Projects';
 import Education from './components/sections/Education';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
+import MouseFollower from './components/ui/MouseFollower';
+import ThreeDAne from './components/ui/ThreeDAne';
 
 const AppContent = () => {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -29,7 +32,10 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-black transition-colors duration-300">
       <Navbar />
+      <Background />
       <main>
+        
+        <MouseFollower />
         <Hero />
         <About />
         <Skills />
@@ -37,7 +43,7 @@ const AppContent = () => {
         <Education />
         <Contact />
       </main>
-      <Footer onThemeToggle={toggleTheme} isDarkMode={isDarkMode} />
+      <Footer  />
     </div>
   );
 };
