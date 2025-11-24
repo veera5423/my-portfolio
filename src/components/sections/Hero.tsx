@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { useState } from 'react';
 import ResumeModal from './ResumeModal';
 import Button from '../ui/Button';
+import ThreeDAne from '../ui/ThreeDAne';
 
 const Hero = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -66,20 +67,13 @@ const Hero = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex-1 mt-6 md:mt-0"
+          className="flex-1 mt-0 md:mt-0 relative"
         >
-          <div className="relative mr-2 mb-36 w-64 h-64 md:w-[25rem] md:h-[25rem] mx-auto">
-            <div className="ring-gradient rounded-full p-1">
-              <div className="profile-frame rounded-full p-1">
-                <motion.img
-                  whileHover={{ scale: 1.05 }}
-                  src="veera2.png"
-                  alt="Profile"
-                  className="rounded-full shadow-2xl object-cover w-full h-full"
-                />
-              </div>
-            </div>
+          <div className="hidden md:block relative  -mt-3 ml-20 md:w-[34rem] md:h-[34rem] mx-auto">
+            {/* Spline canvas will fill the parent container on desktop only */}
+            <ThreeDAne />
           </div>
+          <div id="box" className="absolute z-50 bg-black  w-40 h-10 right-[5px] bottom-5"></div>
         </motion.div>
       </div>
       <ResumeModal isOpen={isResumeOpen} onClose={closeResume} />
@@ -87,4 +81,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Hero
