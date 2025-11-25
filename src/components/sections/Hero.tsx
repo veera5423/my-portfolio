@@ -73,7 +73,7 @@ const Hero = () => {
             {/* Spline canvas will fill the parent container on desktop only */}
             <ThreeDAne />
           </div>
-          <div id="box" className="absolute z-50 bg-black  w-40 h-10 right-[5px] bottom-5"></div>
+          <div id="box" className=" absolute z-50 bg-black  w-40 h-10 right-[5px] bottom-5"></div>
         </motion.div>
       </div>
       <ResumeModal isOpen={isResumeOpen} onClose={closeResume} />

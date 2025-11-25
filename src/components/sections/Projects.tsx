@@ -77,7 +77,7 @@ const Projects = () => {
       image: 'flight-finder.jpg',
       tags: ['MongoDB', 'Express', 'React', 'Node.js', 'Flight Booking', 'Admin Dashboard', 'Operator Panel'],
       githubUrl: 'https://github.com/veera5423/FlightFinder.git',
-      demoUrl: 'https://github.com/veera5423/FlightFinder.git', // No live demo hosted currently
+      demoUrl: 'https://vercel.com/veeranjaneyulus-projects/flight-finder', // No live demo hosted currently
       note: '🚧 Demo currently not hosted. Please check the GitHub repo for full project details.'
     },
     {
